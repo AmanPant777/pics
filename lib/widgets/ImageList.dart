@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:pics/models/image_model.dart';
 
 class ImageList extends StatelessWidget {
@@ -11,11 +12,20 @@ ImageList(this.image);
     return ListView.builder(
       itemCount: image.length,
       itemBuilder: ( context,index){
-        return Container(
-          padding:EdgeInsets.all(10),
-          child: Image(image: NetworkImage(image[index].url),
-          ),
-        );
+        return buildImage(image[index]);
       },);
+  }
+
+  Widget buildImage(ImageModel image){
+   return Container(
+     padding:const EdgeInsets.all(10),
+     decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+     child: Column(
+       children: [
+         Image.network(image.url),
+         Text(image.title)
+       ],
+     ),
+   )  ;
   }
 }

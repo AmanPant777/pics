@@ -9,7 +9,6 @@ class AppHome extends StatefulWidget {
   @override
   State<AppHome> createState() => _AppHomeState();
 }
-
 class _AppHomeState extends State<AppHome> {
   List<ImageModel> images=[];
   int counter=0;
@@ -31,7 +30,6 @@ class _AppHomeState extends State<AppHome> {
       ),
       appBar: AppBar(
         title:const Text('View Image'),
-        
       ),
       body: Center(
         child: ImageList(images),
